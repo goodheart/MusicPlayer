@@ -36,8 +36,9 @@ static PMMusicPlayerManager * _musicPlayerManager;
     
     self.currentTimeStatusFormat = [NSString stringWithFormat:@"%.2d:%.2d/%.2d:%.2d", \
                                     currentTimeMinute,currentTimeSecond, \
-                                    totalTimeMinute,totalTimeSecond]; \
-    self.currentMusicPlayProgress = currentTime / totalTime;
+                                    totalTimeMinute,totalTimeSecond];
+    
+    self.currentMusicPlayProgress = CMTimeGetSeconds(time) / CMTimeGetSeconds(duration);
 }
 
 #pragma mark - Public Method
