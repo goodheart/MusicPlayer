@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="azO-8m-LUh">
-                                <rect key="frame" x="102" y="201" width="117" height="36"/>
+                                <rect key="frame" x="102" y="364" width="117" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="开始"/>
                                 <connections>
@@ -21,7 +21,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jEm-1g-aCm">
-                                <rect key="frame" x="102" y="269" width="117" height="30"/>
+                                <rect key="frame" x="102" y="432" width="117" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="暂停"/>
                                 <connections>
@@ -29,35 +29,33 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00/00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OAa-Wv-6sp">
-                                <rect key="frame" x="110" y="102" width="100" height="21"/>
+                                <rect key="frame" x="110" y="265" width="100" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="ErR-5f-TdB">
-                                <rect key="frame" x="79" y="154" width="206" height="2"/>
+                                <rect key="frame" x="79" y="317" width="206" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pJ7-TQ-AdK">
-                                <rect key="frame" x="110" y="332" width="100" height="30"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Q6Y-tS-aGg">
+                                <rect key="frame" x="0.0" y="15" width="320" height="224"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="下一首"/>
-                                <connections>
-                                    <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0NX-zY-1T8"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="timeStatusFormat" destination="OAa-Wv-6sp" id="xyi-9U-0Qg"/>
-                        <outlet property="timeStatusProgress" destination="ErR-5f-TdB" id="buu-1h-LWw"/>
+                        <outlet property="musicListView" destination="Q6Y-tS-aGg" id="sfL-8e-jkx"/>
+                        <outlet property="timeStatusFormatLabel" destination="OAa-Wv-6sp" id="n7E-F2-tsc"/>
+                        <outlet property="timeStatusProgressView" destination="ErR-5f-TdB" id="FTo-iE-7HK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="297" y="439"/>
+            <point key="canvasLocation" x="-136" y="423"/>
         </scene>
     </scenes>
 </document>

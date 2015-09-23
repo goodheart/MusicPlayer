@@ -27,6 +27,8 @@ typedef NS_OPTIONS(NSUInteger, PMMusicPlayerError) {
 @property (nonatomic,copy,readonly) NSString * currentTimeStatusFormat;//格式:00:05/20:30
 //当前音乐播放进度,建议用KVO进行同步
 @property (nonatomic,assign,readonly) float currentMusicPlayProgress;
+//是否暂停
+@property (nonatomic,assign,readonly,getter=isPaused) BOOL paused;
 
 //开始一首歌/切换至另一首歌
 - (void)switchToMusicStr:(NSString *)musicURLString;

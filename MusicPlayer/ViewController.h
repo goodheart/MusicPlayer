@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *timeStatusFormat;
-@property (weak, nonatomic) IBOutlet UIProgressView *timeStatusProgress;
+@property (weak, nonatomic) IBOutlet UILabel *timeStatusFormatLabel;
+@property (weak, nonatomic) IBOutlet UIProgressView *timeStatusProgressView;
+@property (weak, nonatomic) IBOutlet UITableView *musicListView;
 
 
 @end
