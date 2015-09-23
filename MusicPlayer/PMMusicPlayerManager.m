@@ -24,20 +24,15 @@ static PMMusicPlayerManager * _musicPlayerManager;
 
 #pragma mark - Private Method
 - (void)calcuteTimeFormatter:(CMTime)time{
-    //此处应加判断，避免currentTimeStatusFormat格式出错
-    if (YES == [self isPaused]) {
-        self.currentTimeStatusFormat = @"00:00/00:00";
-        self.currentMusicPlayProgress = 0.0;
-        return;
-    }
+
     CMTime duration = [self.musicPlayer.currentItem duration];
     int totalTime = floor(CMTimeGetSeconds(duration));
-    int totalTimeMinute = totalTime / 60;
-    int totalTimeSecond = totalTime % 60;
+    int totalTimeMinute = totalTime / 60 < 0 ? 0 : totalTime / 60;
+    int totalTimeSecond = totalTime % 60 < 0 ? 0 : totalTime % 60;
     
     int currentTime =  floor(CMTimeGetSeconds(time));
-    int currentTimeMinute = currentTime / 60;
-    int currentTimeSecond = currentTime % 60;
+    int currentTimeMinute = currentTime / 60 < 0;
+    int currentTimeSecond = currentTime % 60 < 0;
     
     self.currentTimeStatusFormat = [NSString stringWithFormat:@"%.2d:%.2d/%.2d:%.2d", \
                                     currentTimeMinute,currentTimeSecond, \
@@ -91,6 +86,7 @@ static PMMusicPlayerManager * _musicPlayerManager;
     }
     
     [self musicPause];//先把之前的音乐暂停
+
     [_musicPlayer replaceCurrentItemWithPlayerItem:playerItem];
 }
 

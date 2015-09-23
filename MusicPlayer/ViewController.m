@@ -100,7 +100,7 @@
     
     [[PMMusicPlayerManager sharedMusicPlayerManager] switchToMusicStr: \
                                         [self.musicArray objectAtIndex:indexPath.row]];
-//    [[PMMusicPlayerManager sharedMusicPlayerManager] musicPlay];
+    [[PMMusicPlayerManager sharedMusicPlayerManager] musicPlay];
 }
 
 @end
