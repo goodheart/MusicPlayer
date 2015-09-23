@@ -11,6 +11,8 @@
 @interface PMMusicPlayerManager : NSObject
 /*
     业务方传入一个音乐地址(NSString或NSURL类型),本Manager即开始播放音乐(应该检查网络是否可用),需要提供的功能有：开始/暂停、时间:(已用时间/总时间)、切换歌曲
+ 待定:
+    后台运行、remote控制、锁屏有封面、电话和听歌打断处理等
  */
 
 @property (nonatomic,copy,readonly) NSString * currentTimeStatus;//格式:00:05/20:30
