@@ -29,15 +29,15 @@ static PMMusicPlayerManager * _musicPlayerManager;
     int totalTime = floor(CMTimeGetSeconds(duration));
     int totalTimeMinute = totalTime / 60 ;
     int totalTimeSecond = totalTime % 60 ;
-    NSLog(@"%d total %d %d",arc4random() % 1000,  totalTimeMinute,totalTimeSecond);
+
     int currentTime =  floor(CMTimeGetSeconds(time));
     int currentTimeMinute = currentTime / 60 ;
     int currentTimeSecond = currentTime % 60 ;
-    NSLog(@"%d current %d %d",arc4random() % 1000, currentTimeMinute,currentTimeSecond);
+
     NSString * format = [NSString stringWithFormat:@"%.2d:%.2d/%.2d:%.2d", \
                                     currentTimeMinute,currentTimeSecond, \
                                     totalTimeMinute,totalTimeSecond];
-    NSLog(@"format : %@",format);
+
     self.currentTimeStatusFormat = format;
     self.currentMusicPlayProgress = CMTimeGetSeconds(time) / CMTimeGetSeconds(duration);
 }
