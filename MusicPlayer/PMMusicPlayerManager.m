@@ -27,17 +27,18 @@ static PMMusicPlayerManager * _musicPlayerManager;
 
     CMTime duration = [self.musicPlayer.currentItem duration];
     int totalTime = floor(CMTimeGetSeconds(duration));
-    int totalTimeMinute = totalTime / 60 < 0 ? 0 : totalTime / 60;
-    int totalTimeSecond = totalTime % 60 < 0 ? 0 : totalTime % 60;
-    
+    int totalTimeMinute = totalTime / 60 ;
+    int totalTimeSecond = totalTime % 60 ;
+    NSLog(@"%d total %d %d",arc4random() % 1000,  totalTimeMinute,totalTimeSecond);
     int currentTime =  floor(CMTimeGetSeconds(time));
-    int currentTimeMinute = currentTime / 60 < 0;
-    int currentTimeSecond = currentTime % 60 < 0;
-    
-    self.currentTimeStatusFormat = [NSString stringWithFormat:@"%.2d:%.2d/%.2d:%.2d", \
+    int currentTimeMinute = currentTime / 60 ;
+    int currentTimeSecond = currentTime % 60 ;
+    NSLog(@"%d current %d %d",arc4random() % 1000, currentTimeMinute,currentTimeSecond);
+    NSString * format = [NSString stringWithFormat:@"%.2d:%.2d/%.2d:%.2d", \
                                     currentTimeMinute,currentTimeSecond, \
                                     totalTimeMinute,totalTimeSecond];
-    
+    NSLog(@"format : %@",format);
+    self.currentTimeStatusFormat = format;
     self.currentMusicPlayProgress = CMTimeGetSeconds(time) / CMTimeGetSeconds(duration);
 }
 
@@ -79,8 +80,12 @@ static PMMusicPlayerManager * _musicPlayerManager;
               queue:dispatch_get_global_queue(0, 0)
          usingBlock:^(CMTime time) {
              __strong typeof(wSelf) sSelf = wSelf;
-             [sSelf calcuteTimeFormatter:time];
+             if (![sSelf isPaused]) {
+                 [sSelf calcuteTimeFormatter:time];
+             }
          }];
+        
+        [self musicPlay];
         
         return;
     }

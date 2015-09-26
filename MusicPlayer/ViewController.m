@@ -20,6 +20,7 @@
 #define remote 1
 #define k_remotePath @"http://mp4.snh48.com/f4126cff-8282-4f4f-af3e-68d62f7c8b02.mp4"
 #define k_remotePath2 @"http://mp4.snh48.com/nightwords/0df12e50-56af-4ca8-9c8d-00c1eb7d7286.mp3"
+#define k_remotePath3 @"http://mp4.snh48.com/nightwords/91027591-d9aa-48b3-9b41-d6cea020e033.mp3"
 
 @implementation ViewController
 #pragma mark - Action
@@ -39,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     /* Table View */
-    self.musicArray = @[k_remotePath,k_remotePath2];
+    self.musicArray = @[k_remotePath,k_remotePath2,k_remotePath3];
     
     self.musicListView.delegate = self;
     self.musicListView.dataSource = self;
@@ -77,6 +78,8 @@
     }
 }
 
+#pragma mark - UITableViewDelegate
+
 #pragma mark - UITableView Delegate and DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -91,6 +94,7 @@
     
     cell.textLabel.text = [self.musicArray objectAtIndex:indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    cell.textLabel.font = [UIFont systemFontOfSize:10];
     
     return cell;
 }
