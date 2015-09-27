@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.author             = { "goodheart" => "1075623679@qq.com" }
   s.platform     = :ios, "7.0"
   s.source       = {:git => "https://github.com/goodheart/MusicPlayer.git" }
-  s.source_files  =  "MusicPlayer/MusicPlayer/*.{h,m}"
+  s.source_files  =  "MusicPlayer/MusicPlayer/"
   s.framework  = "AVFoundation"
   s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/MusicPlayer/" }
 end
