@@ -67,7 +67,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/goodheart/MusicPlayer.git", :commit => "aa0be8005685c626453aa09c764c04af3bad6794" }
+  s.source       = { :git => "https://github.com/goodheart/MusicPlayer.git" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -78,8 +78,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "MusicPlayer/MusicPlayer/*.{h,m}"
-  s.exclude_files = "MusicPlayer/MusicPlayer"
+  s.source_files  =  "MusicPlayer/MusicPlayer/*.h"
   s.public_header_files = "MusicPlayer/MusicPlayer/*.h"
 
 
