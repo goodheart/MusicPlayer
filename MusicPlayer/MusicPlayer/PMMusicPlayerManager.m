@@ -90,7 +90,7 @@ static PMMusicPlayerManager * _musicPlayerManager;
         return;
     }
     
-    [self musicPause];//先把之前的音乐暂停
+    [self musicPause];//切换音乐时先把之前的音乐暂停
 
     [_musicPlayer replaceCurrentItemWithPlayerItem:playerItem];
 }

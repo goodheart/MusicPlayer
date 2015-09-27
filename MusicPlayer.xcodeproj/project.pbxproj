@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FF312FA51BB28F4300CADEC9 /* PMMusicPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF312FA41BB28F4300CADEC9 /* PMMusicPlayerManager.m */; settings = {ASSET_TAGS = (); }; };
+		36BD3D751BB7E65B002B8DC4 /* PMMusicPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BD3D741BB7E65B002B8DC4 /* PMMusicPlayerManager.m */; settings = {ASSET_TAGS = (); }; };
 		FFF692DD1BB27BB500DE4D43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF692DC1BB27BB500DE4D43 /* main.m */; };
 		FFF692E01BB27BB500DE4D43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF692DF1BB27BB500DE4D43 /* AppDelegate.m */; };
 		FFF692E31BB27BB500DE4D43 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF692E21BB27BB500DE4D43 /* ViewController.m */; };
@@ -15,12 +15,11 @@
 		FFF692E81BB27BB500DE4D43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFF692E71BB27BB500DE4D43 /* Assets.xcassets */; };
 		FFF692EB1BB27BB500DE4D43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF692E91BB27BB500DE4D43 /* LaunchScreen.storyboard */; };
 		FFF692F31BB27C3800DE4D43 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF692F21BB27C3800DE4D43 /* AVKit.framework */; };
-		FFF692F51BB27E4600DE4D43 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FFF692F41BB27E4600DE4D43 /* music.mp3 */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FF312FA31BB28F4300CADEC9 /* PMMusicPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMusicPlayerManager.h; sourceTree = "<group>"; };
-		FF312FA41BB28F4300CADEC9 /* PMMusicPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMusicPlayerManager.m; sourceTree = "<group>"; };
+		36BD3D731BB7E65B002B8DC4 /* PMMusicPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMusicPlayerManager.h; sourceTree = "<group>"; };
+		36BD3D741BB7E65B002B8DC4 /* PMMusicPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMusicPlayerManager.m; sourceTree = "<group>"; };
 		FFF692D81BB27BB500DE4D43 /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFF692DC1BB27BB500DE4D43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FFF692DE1BB27BB500DE4D43 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -32,7 +31,6 @@
 		FFF692EA1BB27BB500DE4D43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFF692EC1BB27BB500DE4D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFF692F21BB27C3800DE4D43 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
-		FFF692F41BB27E4600DE4D43 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36BD3D721BB7E65B002B8DC4 /* MusicPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				36BD3D731BB7E65B002B8DC4 /* PMMusicPlayerManager.h */,
+				36BD3D741BB7E65B002B8DC4 /* PMMusicPlayerManager.m */,
+			);
+			path = MusicPlayer;
+			sourceTree = "<group>";
+		};
 		FFF692CF1BB27BB500DE4D43 = {
 			isa = PBXGroup;
 			children = (
@@ -67,13 +74,11 @@
 		FFF692DA1BB27BB500DE4D43 /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				FFF692F41BB27E4600DE4D43 /* music.mp3 */,
+				36BD3D721BB7E65B002B8DC4 /* MusicPlayer */,
 				FFF692DE1BB27BB500DE4D43 /* AppDelegate.h */,
 				FFF692DF1BB27BB500DE4D43 /* AppDelegate.m */,
 				FFF692E11BB27BB500DE4D43 /* ViewController.h */,
 				FFF692E21BB27BB500DE4D43 /* ViewController.m */,
-				FF312FA31BB28F4300CADEC9 /* PMMusicPlayerManager.h */,
-				FF312FA41BB28F4300CADEC9 /* PMMusicPlayerManager.m */,
 				FFF692E41BB27BB500DE4D43 /* Main.storyboard */,
 				FFF692E71BB27BB500DE4D43 /* Assets.xcassets */,
 				FFF692E91BB27BB500DE4D43 /* LaunchScreen.storyboard */,
@@ -148,7 +153,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFF692F51BB27E4600DE4D43 /* music.mp3 in Resources */,
 				FFF692EB1BB27BB500DE4D43 /* LaunchScreen.storyboard in Resources */,
 				FFF692E81BB27BB500DE4D43 /* Assets.xcassets in Resources */,
 				FFF692E61BB27BB500DE4D43 /* Main.storyboard in Resources */,
@@ -163,9 +167,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFF692E31BB27BB500DE4D43 /* ViewController.m in Sources */,
+				36BD3D751BB7E65B002B8DC4 /* PMMusicPlayerManager.m in Sources */,
 				FFF692E01BB27BB500DE4D43 /* AppDelegate.m in Sources */,
 				FFF692DD1BB27BB500DE4D43 /* main.m in Sources */,
-				FF312FA51BB28F4300CADEC9 /* PMMusicPlayerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

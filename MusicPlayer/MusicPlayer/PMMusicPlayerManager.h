@@ -18,7 +18,8 @@ typedef NS_OPTIONS(NSUInteger, PMMusicPlayerError) {
 /*
     业务方传入一个音乐地址(NSString或NSURL类型),本Manager即开始播放音乐(应该检查网络是否可用),需要提供的功能有：开始/暂停、时间:(已用时间/总时间)、切换歌曲、音乐播放进度
  待定:
-    后台运行、remote控制、锁屏有封面、电话和听歌打断处理等
+   1、后台运行、remote控制、锁屏有封面、电话和听歌打断处理等
+   2、currentTimeStatusFormat时间格式可定制
  */
 
 + (id)sharedMusicPlayerManager;
@@ -30,6 +31,7 @@ typedef NS_OPTIONS(NSUInteger, PMMusicPlayerError) {
 //是否暂停
 @property (nonatomic,assign,readonly,getter=isPaused) BOOL paused;
 
+
 //开始一首歌/切换至另一首歌
 - (void)switchToMusicStr:(NSString *)musicURLString;
 - (void)switchToMusicURL:(NSURL *)musicURL;
@@ -37,6 +39,5 @@ typedef NS_OPTIONS(NSUInteger, PMMusicPlayerError) {
 - (void)musicPlay;
 //暂停音乐
 - (void)musicPause;
-
 
 @end
