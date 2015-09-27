@@ -17,6 +17,8 @@
 
 /* private property */
 @property (nonatomic,strong) AVPlayer * musicPlayer;
+//是否暂停
+@property (nonatomic,assign,readwrite,getter=isPaused) BOOL paused;
 
 @end
 static PMMusicPlayerManager * _musicPlayerManager;
@@ -80,7 +82,8 @@ static PMMusicPlayerManager * _musicPlayerManager;
         return;
     }
     
-    [self musicPause];//切换音乐时先把之前的音乐暂停
+//    [self musicPause];//切换音乐时先把之前的音乐暂停
+    self.paused = YES;
 
     [_musicPlayer replaceCurrentItemWithPlayerItem:playerItem];
 }
@@ -106,23 +109,50 @@ static PMMusicPlayerManager * _musicPlayerManager;
 }
 
 #pragma mark - Private Method
-- (void)calcuteTimeFormatter:(CMTime)time{
+- (void)calcuteTimeFormatter:(CMTime)time{//该方法运行在多线程，而不是主线程
+    if (CMTIME_IS_INVALID(time)) {
+        return;
+    }
     
     CMTime duration = [self.musicPlayer.currentItem duration];
     int totalTime = floor(CMTimeGetSeconds(duration));
-    int totalTimeMinute = totalTime / 60 ;
-    int totalTimeSecond = totalTime % 60 ;
+    int totalTimeMinute = totalTime / 60 < 0 ? 0 : totalTime / 60;
+    int totalTimeSecond = totalTime % 60 < 0 ? 0 : totalTime % 50;
     
     int currentTime =  floor(CMTimeGetSeconds(time));
-    int currentTimeMinute = currentTime / 60 ;
-    int currentTimeSecond = currentTime % 60 ;
+    int currentTimeMinute = currentTime / 60 < 0 ? 0 : currentTime / 60 ;
+    int currentTimeSecond = currentTime % 60 < 0 ? 0 : currentTime % 60;
     
     NSString * format = [NSString stringWithFormat:@"%.2d:%.2d/%.2d:%.2d", \
                          currentTimeMinute,currentTimeSecond, \
                          totalTimeMinute,totalTimeSecond];
     
     self.currentTimeStatusFormat = format;
-    self.currentMusicPlayProgress = CMTimeGetSeconds(time) / CMTimeGetSeconds(duration);
+    
+//    self.currentMusicPlayProgress = CMTimeGetSeconds(time) / CMTimeGetSeconds(duration);
+    self.currentMusicPlayProgress = (float)(currentTimeMinute * 60 + currentTimeSecond) / (totalTimeMinute * 60 + totalTimeSecond);
+    //以下为通知代理
+    if (nil == self.delegate) {
+        return;
+    }
+    
+    if (![self.delegate conformsToProtocol:@protocol(PMMusicPlayerManagerProtocol)]) {
+        return;
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(musicPlayerManager:playerCurrentMusicPlayProgress:)]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate musicPlayerManager:self
+               playerCurrentMusicPlayProgress:self.currentMusicPlayProgress];
+        });
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(musicPlayerManager:playerCurrentTimeStatusFormat:)]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate musicPlayerManager:self
+                playerCurrentTimeStatusFormat:self.currentTimeStatusFormat];
+        });
+    }
 }
 
 /*
