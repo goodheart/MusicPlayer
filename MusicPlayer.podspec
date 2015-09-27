@@ -78,9 +78,9 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "MusicPlayer/*.{h,m}"
-  s.exclude_files = "MusicPlayer/"
-  s.public_header_files = "MusicPlayer/*.h"
+  s.source_files  = "Classes", "MusicPlayer/MusicPlayer/*.{h,m}"
+  s.exclude_files = "MusicPlayer/MusicPlayer"
+  s.public_header_files = "MusicPlayer/MusicPlayer/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
