@@ -22,24 +22,14 @@
 static PMMusicPlayerManager * _musicPlayerManager;
 @implementation PMMusicPlayerManager
 
-#pragma mark - Private Method
-- (void)calcuteTimeFormatter:(CMTime)time{
-
-    CMTime duration = [self.musicPlayer.currentItem duration];
-    int totalTime = floor(CMTimeGetSeconds(duration));
-    int totalTimeMinute = totalTime / 60 ;
-    int totalTimeSecond = totalTime % 60 ;
-
-    int currentTime =  floor(CMTimeGetSeconds(time));
-    int currentTimeMinute = currentTime / 60 ;
-    int currentTimeSecond = currentTime % 60 ;
-
-    NSString * format = [NSString stringWithFormat:@"%.2d:%.2d/%.2d:%.2d", \
-                                    currentTimeMinute,currentTimeSecond, \
-                                    totalTimeMinute,totalTimeSecond];
-
-    self.currentTimeStatusFormat = format;
-    self.currentMusicPlayProgress = CMTimeGetSeconds(time) / CMTimeGetSeconds(duration);
+#pragma mark - Life Cycle
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.firstAutoPlay = NO;//默认不自动播放
+    }
+    return self;
 }
 
 #pragma mark - Public Method
@@ -85,7 +75,7 @@ static PMMusicPlayerManager * _musicPlayerManager;
              }
          }];
         
-        [self musicPlay];
+        self.firstAutoPlay == NO ? : [self musicPlay];
         
         return;
     }
@@ -113,6 +103,26 @@ static PMMusicPlayerManager * _musicPlayerManager;
 
 - (BOOL)isPaused {
     return self.musicPlayer.rate == 0.0;
+}
+
+#pragma mark - Private Method
+- (void)calcuteTimeFormatter:(CMTime)time{
+    
+    CMTime duration = [self.musicPlayer.currentItem duration];
+    int totalTime = floor(CMTimeGetSeconds(duration));
+    int totalTimeMinute = totalTime / 60 ;
+    int totalTimeSecond = totalTime % 60 ;
+    
+    int currentTime =  floor(CMTimeGetSeconds(time));
+    int currentTimeMinute = currentTime / 60 ;
+    int currentTimeSecond = currentTime % 60 ;
+    
+    NSString * format = [NSString stringWithFormat:@"%.2d:%.2d/%.2d:%.2d", \
+                         currentTimeMinute,currentTimeSecond, \
+                         totalTimeMinute,totalTimeSecond];
+    
+    self.currentTimeStatusFormat = format;
+    self.currentMusicPlayProgress = CMTimeGetSeconds(time) / CMTimeGetSeconds(duration);
 }
 
 /*

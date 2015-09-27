@@ -30,6 +30,8 @@ typedef NS_OPTIONS(NSUInteger, PMMusicPlayerError) {
 @property (nonatomic,assign,readonly) float currentMusicPlayProgress;
 //是否暂停
 @property (nonatomic,assign,readonly,getter=isPaused) BOOL paused;
+//第一次是否自动播放,默认不自动播放
+@property (nonatomic,assign) BOOL firstAutoPlay;
 
 
 //开始一首歌/切换至另一首歌
